@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :set_list
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,5 +29,9 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def set_list
+    self.list = List.create(description: "Hello world, this is your list. You get only one so treat it with care. Good luck!🚀")
   end
 end
