@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   after_create :set_list
+  before_create :set_username
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
-  has_one :list
+  has_one :list, dependent: :destroy
 
   def to_param
     username
@@ -33,5 +34,10 @@ class User < ApplicationRecord
 
   def set_list
     self.list = List.create(description: "Hello world, this is your list. You get only one so treat it with care. Good luck!🚀")
+  end
+
+  def set_username
+    words = ["the_great", "the_furriest", "the_conqueror", "the_sleepy", "the_laughable", "the_destroyer"]
+    self.username = "#{self.first_name.downcase}_#{words.sample}"
   end
 end
