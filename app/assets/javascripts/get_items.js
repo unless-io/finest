@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#get-items').on('submit', function(event){
     event.preventDefault();
     $('#results').empty()
-    var query = $('#query').val(); 
+    var query = $('#query').val();
 
     $.ajax({
       type: "GET",
@@ -20,7 +20,7 @@ $(document).ready(function(){
     });
   });
 
-  
+
   function addToPage(item){
     var listItem = '<li>' + compileResult(item) + '</li>'
       $('#results').append(listItem)
@@ -28,12 +28,17 @@ $(document).ready(function(){
 
   function compileResult(item) {
     if (item) {
-      return compileThumbnail(item) + compileTitle(item) + compileAuthors(item)
+      return compileThumbnail(item) + compileTitle(item) + compileAuthors(item) + compilePreviewLink(item)
     }
     else {
       return "No results found"
     }
   }
+
+  function compilePreviewLink(item) {
+    return "<a href='/preview?google_api_id=" + item.id + "'>" + "Preview" + "</a>"
+  }
+
 
   function compileThumbnail(item) {
     if (item.volumeInfo.imageLinks){
