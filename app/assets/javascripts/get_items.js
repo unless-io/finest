@@ -45,7 +45,7 @@ $(document).ready(function(){
       return "<img src='" + item.volumeInfo.imageLinks.thumbnail + "'>"
     }
     else {
-      return "<img src='http://localhost:3000/placeholder.png'>"
+      return "<img src='/placeholder.png'>"
     }
   }
 

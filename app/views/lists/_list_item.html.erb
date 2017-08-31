@@ -1,10 +1,50 @@
-<li>
-  <%= image_tag item["imageLinks"]["thumbnail"] %>
-  <%= item["publishedDate"] %>
-  <% item["authors"].each do |author| %>
-    <%= author %>
+<li class="list-item <%= index.even? ? "reverse" : "normal" %>">
+  <% if item["imageLinks"] %>
+    <%= image_tag item["imageLinks"]["thumbnail"] %>
+  <% else %>
+    <%= image_tag "placeholder.png" %>
   <% end %>
-  <%= item["title"] %>
-  <%= item["description"].html_safe %>
+  <div class="list-body">
+    <div class="list-header">
+      <h3>
+      <% if item["title"] %>
+        <%= item["title"] %>
+      <% else %>
+        No title found
+      <% end %>
+      </h3>
+      <div class="additional-info">
+        <strong>
+        <% if item["publishedDate"] %>
+          <%= item["publishedDate"] %>
+        <% else %>
+          unknown
+        <% end %>
+        </strong>
+        <% if item["authors"] %>
+          <% item["authors"].each do |author| %>
+          <em>
+            <%= author %>
+          </em>
+          <% end %>
+        <% else %>
+          <em>
+            author unknown
+          </em>
+        <% end %>
+      </div>
+    </div>
+    <div class="list-description">
+    <% if item["description"] %>
+      <p>
+        <%= truncate(item["description"], length: 300, escape: false) %>
+      </p>
+    <% else %>
+    <p>
+      No description available at this time.
+    </p>
+    <% end %>
+    </div>
+  </div>
 </li>
 

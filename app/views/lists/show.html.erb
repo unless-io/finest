@@ -1,5 +1,5 @@
 <ul class="list-cards">
-<% @items.each do |item| %>
-  <%= render partial: "list_item", locals: { item: item } %>
+<% @items.each_with_index do |item, index| %>
+  <%= render partial: "list_item", locals: { item: item, index: index } %>
 <% end %>
 </ul>
