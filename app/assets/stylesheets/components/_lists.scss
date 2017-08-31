@@ -1,0 +1,57 @@
+ul.list-cards {
+  list-style: none;
+}
+
+li.list-item.reverse {
+  flex-direction: row-reverse;
+}
+
+li.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0;
+  &:first-child {
+    margin: 0px 0px 40px 0px;
+  }
+  img {
+    width: 120px;
+  }
+  .list-description p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+}
+
+li.list-item.normal .list-body {
+  padding-left: 30px;
+  flex: 1 0 80%;
+}
+
+li.list-item.reverse .list-body {
+  padding-right: 30px;
+  flex: 1 0 80%;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  h3 {
+    font-size: 25px;
+    color: $black;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  .additional-info {
+    font-size: 15px;
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: flex-end;
+    color: $light-gray;
+    em {
+      margin-left: 5px;
+    }
+  }
+}
+
