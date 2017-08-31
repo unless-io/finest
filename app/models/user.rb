@@ -40,4 +40,12 @@ class User < ApplicationRecord
     words = ["the_great", "the_furriest", "the_conqueror", "the_sleepy", "the_laughable", "the_destroyer"]
     self.username = "#{self.first_name.downcase}_#{words.sample}"
   end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def profile_large
+    self.facebook_picture_url.split("=")[0] << "=large"
+  end
 end

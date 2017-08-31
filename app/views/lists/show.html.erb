@@ -1,1 +1,5 @@
-hello world
+<ul class="list-cards">
+<% @items.each do |item| %>
+  <%= render partial: "list_item", locals: { item: item } %>
+<% end %>
+</ul>

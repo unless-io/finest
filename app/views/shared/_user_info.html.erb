@@ -1,0 +1,30 @@
+<div class="user-info">
+  <% if user_signed_in? %>
+  <div class="top">
+    <%= image_tag current_user.profile_large %>
+    <%= current_user.full_name %>
+  </div>
+  <div class="bottom">
+    <div class="tags">
+      <span>
+        #scifi
+      </span>
+      <span>
+        #thriller
+      </span>
+      <span>
+        #lostinspace
+      </span>
+      <span>
+        #romance
+      </span>
+      <span>
+        #adventure
+      </span>
+    </div>
+    <div class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut earum eveniet atque eaque, tenetur minima iste repellendus dolore omnis facilis.
+    </div>
+  </div>
+  <% end %>
+</div>

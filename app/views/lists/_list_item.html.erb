@@ -1,0 +1,10 @@
+<li>
+  <%= image_tag item["imageLinks"]["thumbnail"] %>
+  <%= item["publishedDate"] %>
+  <% item["authors"].each do |author| %>
+    <%= author %>
+  <% end %>
+  <%= item["title"] %>
+  <%= item["description"].html_safe %>
+</li>
+
