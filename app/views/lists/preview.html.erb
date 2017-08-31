@@ -1,7 +1,13 @@
-<%= image_tag @item["imageLinks"]["thumbnail"] %>
-  <%= @item["publishedDate"] %>
-  <% @item["authors"].each do |author| %>
-    <%= author %>
-  <% end %>
-  <%= @item["title"] %>
-  <%= @item["description"].html_safe %>
+<%= image_tag @item["volumeInfo"]["imageLinks"]["thumbnail"] %>
+<%= @item["volumeInfo"]["publishedDate"] %>
+<% @item["volumeInfo"]["authors"].each do |author| %>
+  <%= author %>
+<% end %>
+<%= @item["volumeInfo"]["title"] %>
+<%= @item["volumeInfo"]["description"].html_safe %>
+<%#= link_to "Add to list", new_list_item_path(@item), {google_api_id: @item["id"]} %>
+<%= simple_form_for @new_item, url: list_items_path(current_user) do |f| %>
+<%= f.input :title, as: :hidden, input_html: { value: @item["volumeInfo"]["title"] } %>
+<%= f.input :google_api_id, as: :hidden, input_html: { value: @item["id"] } %>
+<%= f.submit %>
+<% end %>

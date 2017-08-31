@@ -7,7 +7,8 @@ class ListsController < ApplicationController
 
   def preview
     if params[:google_api_id].present?
-      @item = GetSingleItemService.new(item: Item.new(google_api_id: params[:google_api_id])).call["volumeInfo"]
+    @new_item = Item.new
+      @item = GetSingleItemService.new(item: Item.new(google_api_id: params[:google_api_id])).call
     else
       redirect_to root_path
     end
