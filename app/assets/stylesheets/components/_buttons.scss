@@ -1,0 +1,12 @@
+.btn-facebook {
+  background-color: #3B5998;
+  color: white;
+  padding: 5px 15px;
+  display: block;
+  width: 250px;
+  margin: 10px 0;
+  &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+    color: white;
+  }
+}
