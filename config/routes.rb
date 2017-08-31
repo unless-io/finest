@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resource :list, only: [:show], path: ':username' do
     resources :items, except: [:index]
   end
+
 end
