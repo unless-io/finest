@@ -33,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def set_list
-    self.list = List.create(description: "Hello world, this is your list. You get only one so treat it with care. Good luck!🚀")
+    self.list = List.create()
   end
 
   def set_username
