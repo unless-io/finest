@@ -1,0 +1,26 @@
+
+
+$('#results').empty()
+
+
+<% if @results["items"].nil? %>
+  $('#results').append("<li>No results found </li>");
+<% else %>
+
+
+<% @results["items"].each_with_index do |item, index| %>
+  // Create a paragraph for the new review. But hide it.
+  var searchItem = $("<%= j render 'lists/list_item', item: item, index: index %>").hide();
+  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
+  $('#results').append(searchItem);
+  // Show the new review with an animation!
+  searchItem.slideDown();
+
+<% end %>
+
+
+  // Reset the form
+  $('#new-search').html("<%= j render 'shared/search_form' %>");
+
+<% end %>
+

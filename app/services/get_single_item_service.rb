@@ -9,7 +9,6 @@ class GetSingleItemService
   def call
     api_url = "https://www.googleapis.com/books/v1/volumes/#{@item.google_api_id}"
 
-    
     return JSON.parse(open(api_url).read)
   end
 end

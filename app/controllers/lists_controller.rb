@@ -14,12 +14,20 @@ class ListsController < ApplicationController
     end
   end
 
+  def search
+    @results = GetListItemService.new(query: params[:query][:query]).call
+    respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js  # <-- will render `app/views/lists/search.js.erb`
+      end
+  end
+
   private
 
   def get_items
     result = []
     @list.items.each do |item|
-      result << GetSingleItemService.new(item: item).call["volumeInfo"]
+      result << GetSingleItemService.new(item: item).call
     end
     result
   end

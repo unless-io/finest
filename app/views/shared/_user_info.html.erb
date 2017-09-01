@@ -2,7 +2,9 @@
   <% if user_signed_in? %>
   <div class="top">
     <%= image_tag current_user.profile_large %>
-    <%= current_user.full_name %>
+    <h3>
+      <%= current_user.full_name %>
+    </h3>
   </div>
   <div class="bottom">
     <div class="tags">
@@ -23,7 +25,9 @@
       </span>
     </div>
     <div class="description">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut earum eveniet atque eaque, tenetur minima iste repellendus dolore omnis facilis.
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut earum eveniet atque eaque, tenetur minima iste repellendus dolore omnis facilis.
+      </p>
     </div>
   </div>
   <% end %>

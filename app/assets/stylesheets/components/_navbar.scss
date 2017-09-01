@@ -1,4 +1,4 @@
-.navbar-finest .logo {
+.navbar-epiclist .logo {
   font-family: 'Lobster', 'Noto Sans';
   color: $brand-color;
   text-decoration: none;
@@ -9,7 +9,7 @@
   }
 }
 
-.navbar-finest {
+.navbar-epiclist {
   width: calc(100vw - 200px);
   display: flex;
   justify-content: space-between;
@@ -17,7 +17,7 @@
   margin-bottom: 30px;
 }
 
-.navbar-finest-right.right-align {
+.navbar-epiclist-right.right-align {
   flex: 0 0 20%;
   display: flex;
   justify-content: flex-end;
@@ -31,7 +31,7 @@
   }
 }
 
-.navbar-finest-right {
+.navbar-epiclist-right {
   flex: 0 0 20%;
   display: flex;
   justify-content: space-between;
