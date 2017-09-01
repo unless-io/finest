@@ -1,6 +1,7 @@
 .list-link {
   text-decoration: none;
   color: $gray;
+  width: 100%;
   &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
     color: $gray;
@@ -16,6 +17,7 @@ li.list-item.reverse {
 }
 
 li.list-item {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -7,7 +7,8 @@ class ListsController < ApplicationController
 
   def preview
     if params[:google_api_id].present?
-    @new_item = Item.new
+      @user_item = Item.find_by(list: current_user.list, google_api_id: params[:google_api_id])
+      @new_item = Item.new
       @item = GetSingleItemService.new(item: Item.new(google_api_id: params[:google_api_id])).call
     else
       redirect_to root_path
@@ -17,23 +18,24 @@ class ListsController < ApplicationController
   def search
     @results = GetListItemService.new(query: params[:query][:query]).call
     respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js  # <-- will render `app/views/lists/search.js.erb`
+      format.html { redirect_to root_path }
+        format.js 
+         # <-- will render `app/views/lists/search.js.erb`
       end
-  end
-
-  private
-
-  def get_items
-    result = []
-    @list.items.each do |item|
-      result << GetSingleItemService.new(item: item).call
     end
-    result
-  end
 
-  def set_list
-    @list = current_user.list
-  end
+    private
 
-end
+    def get_items
+      result = []
+      @list.items.each do |item|
+        result << GetSingleItemService.new(item: item).call
+      end
+      result
+    end
+
+    def set_list
+      @list = current_user.list
+    end
+
+  end

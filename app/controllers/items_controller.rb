@@ -19,6 +19,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      redirect_to list_path(current_user)
+      flash[:notice] = "Item succesfully destroyed"
+    else
+      redirect_to list_item_path(current_user, @item)
+      flash[:danger] = "Something went wrong"
+    end
+  end
+
   private
 
   def item_params
