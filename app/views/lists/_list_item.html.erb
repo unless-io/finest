@@ -1,28 +1,30 @@
+
+<%= link_to preview_path(google_api_id: item["id"]), class: "list-link" do %>
 <li class="list-item <%= index.even? ? "reverse" : "normal" %>">
-  <% if item["imageLinks"] %>
-    <%= image_tag item["imageLinks"]["thumbnail"] %>
+  <% if item["volumeInfo"]["imageLinks"] %>
+    <%= image_tag item["volumeInfo"]["imageLinks"]["thumbnail"] %>
   <% else %>
     <%= image_tag "placeholder.png" %>
   <% end %>
   <div class="list-body">
     <div class="list-header">
       <h3>
-      <% if item["title"] %>
-        <%= item["title"] %>
+      <% if item["volumeInfo"]["title"] %>
+        <%= item["volumeInfo"]["title"] %>
       <% else %>
         No title found
       <% end %>
       </h3>
       <div class="additional-info">
         <strong>
-        <% if item["publishedDate"] %>
-          <%= item["publishedDate"] %>
+        <% if item["volumeInfo"]["publishedDate"] %>
+          <%= item["volumeInfo"]["publishedDate"] %>
         <% else %>
           unknown
         <% end %>
         </strong>
-        <% if item["authors"] %>
-          <% item["authors"].each do |author| %>
+        <% if item["volumeInfo"]["authors"] %>
+          <% item["volumeInfo"]["authors"].each do |author| %>
           <em>
             <%= author %>
           </em>
@@ -35,9 +37,9 @@
       </div>
     </div>
     <div class="list-description">
-    <% if item["description"] %>
+    <% if item["volumeInfo"]["description"] %>
       <p>
-        <%= truncate(item["description"].gsub(/<br>/, " "), length: 300, escape: false) %>
+        <%= truncate(item["volumeInfo"]["description"].gsub(/<br>/, " "), length: 300, escape: false) %>
       </p>
     <% else %>
     <p>
@@ -47,4 +49,6 @@
     </div>
   </div>
 </li>
+
+<% end %>
 

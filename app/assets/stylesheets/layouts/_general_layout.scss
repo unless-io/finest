@@ -11,3 +11,17 @@
     }
   }
 }
+
+.user-info .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  img {
+    height: 100px;
+  }
+  h3 {
+    margin: 0;
+    font-weight: 700;
+    color: $light-gray;
+  }
+}

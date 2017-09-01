@@ -1,15 +1,15 @@
-<div class="navbar-finest">
-  <%= link_to "Finest", root_path, class: "logo" %>
+<div class="navbar-epiclist">
+  <%= link_to "Epiclist", root_path, class: "logo" %>
 
   <% if user_signed_in? %>
-  <div class="navbar-finest-right">
+  <div class="navbar-epiclist-right">
     <%= link_to "my Books", list_path(current_user) %>
     <%= link_to destroy_user_session_path, method: :delete do %>
     <%= t(".sign_out", default: "Log out") %>
     <% end %>
   </div>
   <% else %>
-  <div class="navbar-finest-right right-align">
+  <div class="navbar-epiclist-right right-align">
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
   </div>
   <% end %>

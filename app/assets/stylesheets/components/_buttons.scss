@@ -10,3 +10,12 @@
     color: white;
   }
 }
+
+.btn-blue {
+  border: none;
+  background-color: $brand-color;
+  color: white;
+  padding: 5px 20px;
+  margin: 20px 0;
+  box-shadow: 1px 1px 4px rgba(1,1,1,0.2);
+}
