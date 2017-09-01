@@ -18,7 +18,12 @@
       <div class="additional-info">
         <strong>
         <% if item["volumeInfo"]["publishedDate"] %>
+        <!-- TODO opschonen-->
+        <% if item["volumeInfo"]["publishedDate"].include? "-"   %>
+          <%= item["volumeInfo"]["publishedDate"][0..3] %>
+        <% else %>
           <%= item["volumeInfo"]["publishedDate"] %>
+        <% end %>
         <% else %>
           unknown
         <% end %>
