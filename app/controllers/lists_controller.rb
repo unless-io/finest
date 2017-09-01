@@ -5,6 +5,15 @@ class ListsController < ApplicationController
     @items = get_items
   end
 
+  def preview
+    if params[:google_api_id].present?
+    @new_item = Item.new
+      @item = GetSingleItemService.new(item: Item.new(google_api_id: params[:google_api_id])).call
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def get_items
@@ -18,4 +27,5 @@ class ListsController < ApplicationController
   def set_list
     @list = current_user.list
   end
+
 end

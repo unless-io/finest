@@ -37,7 +37,7 @@
     <div class="list-description">
     <% if item["description"] %>
       <p>
-        <%= truncate(item["description"], length: 300, escape: false) %>
+        <%= truncate(item["description"].gsub(/<br>/, " "), length: 300, escape: false) %>
       </p>
     <% else %>
     <p>
