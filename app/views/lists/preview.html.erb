@@ -4,7 +4,11 @@
 <%= author %>
 <% end %>
 <%= @item["volumeInfo"]["title"] %>
-<%= @item["volumeInfo"]["description"].html_safe %>
+<% if @item["volumeInfo"]["description"] %>
+  <%= @item["volumeInfo"]["description"].html_safe %>
+<% else %>
+  <p>No description available</p>
+<% end %>
 <%#= link_to "Add to list", new_list_item_path(@item), {google_api_id: @item["id"]} %>
 
 <% if @user_item.nil? %>
@@ -15,7 +19,7 @@
   <% end %>
 <% else %>
   <%= link_to list_item_path(current_user, @user_item), method: :delete, class: "btn-round-base btn-red btn-round-big" do %>
-  <i class="fa fa-times"></i> 
+  <i class="fa fa-times"></i>
   <% end %>
 <% end %>
 
