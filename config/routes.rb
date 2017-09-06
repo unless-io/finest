@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
 
   resource :list, only: [:show], path: ':username' do
-    resources :items, except: [:index]
+    resources :items, except: [:index] do
+      resources :comments, only: [:new, :create, :edit, :update]
+    end
   end
 
 end

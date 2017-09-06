@@ -1,0 +1,11 @@
+<div class="book-carousel">
+<a href="#" id="previous">
+  <i class="fa fa-chevron-left"></i>
+</a>
+  <% current_user.list.items.each_slice(5).with_index do |item_slice, index| %>
+    <%= render partial: "lists/book_carousel_slice", locals: { item_slice: item_slice, index: index } %>
+  <% end %>
+  <a href="#" id="next">
+  <i class="fa fa-chevron-right"></i>
+</a>
+</div>

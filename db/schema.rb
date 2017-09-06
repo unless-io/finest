@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901133850) do
+ActiveRecord::Schema.define(version: 20170905141157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(version: 20170901133850) do
     t.integer  "list_id"
     t.string   "title"
     t.string   "google_api_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.text     "content"
+    t.string   "author"
+    t.string   "publishing_date"
+    t.string   "thumbnail"
     t.index ["list_id"], name: "index_items_on_list_id", using: :btree
   end
 

@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
 
   def show
-    @json_item = GetSingleItemService.new(item: Item.find(params[:id])).call["volumeInfo"]
+    @new_item = Item.new
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -10,7 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    json_item = GetSingleItemService.new(item: Item.new(google_api_id: params[:item][:google_api_id])).call
+    @item = ParseItemService.new(item: json_item).call
     @item.list = current_user.list
     if @item.save
       redirect_to list_path(current_user)
@@ -28,11 +30,5 @@ class ItemsController < ApplicationController
       redirect_to list_item_path(current_user, @item)
       flash[:danger] = "Something went wrong"
     end
-  end
-
-  private
-
-  def item_params
-    params.require(:item).permit(:title, :google_api_id)
   end
 end

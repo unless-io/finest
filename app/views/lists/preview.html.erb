@@ -1,21 +1,7 @@
-<%= image_tag @item["volumeInfo"]["imageLinks"]["thumbnail"] %>
-<%= @item["volumeInfo"]["publishedDate"] %>
-<% @item["volumeInfo"]["authors"].each do |author| %>
-<%= author %>
-<% end %>
-<%= @item["volumeInfo"]["title"] %>
-<%= @item["volumeInfo"]["description"].html_safe %>
-<%#= link_to "Add to list", new_list_item_path(@item), {google_api_id: @item["id"]} %>
-
-<% if @user_item.nil? %>
+<div class="book-info-container">
+  <%= render partial: "lists/book_info", locals: { item: @item } %>
   <%= simple_form_for @new_item, url: list_items_path(current_user) do |f| %>
-    <%= f.input :title, as: :hidden, input_html: { value: @item["volumeInfo"]["title"] } %>
-    <%= f.input :google_api_id, as: :hidden, input_html: { value: @item["id"] } %>
+    <%= f.input :google_api_id, as: :hidden, input_html: { value: @item.google_api_id } %>
     <%= f.submit "Add this item to your collection", class: "btn-base btn-blue", data: { confirm: 'Are you sure you want to add this item to your list?' } %>
   <% end %>
-<% else %>
-  <%= link_to list_item_path(current_user, @user_item), method: :delete, class: "btn-round-base btn-red btn-round-big" do %>
-  <i class="fa fa-times"></i> 
-  <% end %>
-<% end %>
-
+</div>

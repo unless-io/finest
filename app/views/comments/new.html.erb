@@ -1,0 +1,4 @@
+<%= simple_form_for @comment, url: list_item_comments_path(current_user.list, @item) do |f| %>
+<%= f.input :content %>
+<%= f.submit %>
+<% end %>

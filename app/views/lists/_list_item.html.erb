@@ -1,54 +1,48 @@
-
-<%= link_to preview_path(google_api_id: item["id"]), class: "list-link" do %>
 <li class="list-item <%= index.even? ? "reverse" : "normal" %>">
-  <% if item["volumeInfo"]["imageLinks"] %>
-    <%= image_tag item["volumeInfo"]["imageLinks"]["thumbnail"] %>
+  <% if item.thumbnail %>
+    <%= image_tag item.thumbnail %>
   <% else %>
     <%= image_tag "placeholder.png" %>
   <% end %>
   <div class="list-body">
     <div class="list-header">
       <h3>
-      <% if item["volumeInfo"]["title"] %>
-        <%= item["volumeInfo"]["title"] %>
+      <% if item.title %>
+        <%= item.title %>
       <% else %>
         No title found
       <% end %>
       </h3>
       <div class="additional-info">
         <strong>
-        <% if item["volumeInfo"]["publishedDate"] %>
-          <%= item["volumeInfo"]["publishedDate"] %>
+        <% if item.publishing_date %>
+          <%= item.publishing_date %>
         <% else %>
           unknown
         <% end %>
         </strong>
-        <% if item["volumeInfo"]["authors"] %>
-          <% item["volumeInfo"]["authors"].each do |author| %>
           <em>
-            <%= author %>
+            <%= item.author %>
           </em>
-          <% end %>
-        <% else %>
-          <em>
-            author unknown
-          </em>
-        <% end %>
       </div>
     </div>
     <div class="list-description">
-    <% if item["volumeInfo"]["description"] %>
+    <% if item.content %>
       <p>
-        <%= truncate(item["volumeInfo"]["description"].gsub(/<br>/, " "), length: 300, escape: false) %>
+        <%= truncate(item.content.gsub(/<br>/, " "), length: 300, escape: false) %>
       </p>
-    <% else %>
-    <p>
-      No description available at this time.
-    </p>
     <% end %>
     </div>
+    <% if preview %>
+      <%= link_to preview_path(google_api_id: item.google_api_id), class: "list-link" do %>
+        Preview
+      <% end %>
+    <% else %>
+      <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
+        More info
+      <% end %>
+    <% end %>
   </div>
 </li>
 
-<% end %>
 

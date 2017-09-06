@@ -1,0 +1,13 @@
+<div class="book-carousel-slice<%= index > 0 ? " hidden" : " active" %>">
+  <% item_slice.each do |item| %>
+    <%= link_to list_item_path(current_user.list, item) do %>
+      <% if item.thumbnail %>
+        <%= image_tag item.thumbnail, class: "carousel-image" %>
+      <% else %>
+        <%= image_tag "placeholder.png", class: "carousel-image" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+

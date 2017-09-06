@@ -1,0 +1,38 @@
+.book-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .image-left {
+    margin: 0 40px;
+  }
+}
+
+.book-description-right {
+  .book-description-header {
+    h2 {
+      font-size: 22px;
+      margin-bottom: 24px;
+      margin-top: 0;
+      color: $black;
+    }
+    h3 {
+      font-size: 17px;
+      color: $light-gray;
+      margin: 10px 0;
+    }
+  }
+  .book-description-content {
+    margin-top: 25px;
+    line-height: 23px;
+    font-size: 12px;
+  }
+}
+
+.book-info-container {
+  position: relative;
+  .btn-round-base {
+    position: absolute;
+    top: 0;
+    left: 10px;
+  }
+}

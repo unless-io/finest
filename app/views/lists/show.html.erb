@@ -1,6 +1,6 @@
 <ul class="list-cards">
 <%= link_to "Add books", new_list_item_path  %>
 <% @items.each_with_index do |item, index| %>
-  <%= render partial: "list_item", locals: { item: item, index: index } %>
+  <%= render partial: "list_item", locals: { item: item, index: index, preview: false } %>
 <% end %>
 </ul>
