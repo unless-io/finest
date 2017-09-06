@@ -45,6 +45,9 @@
       <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
         More info
       <% end %>
+      <%= link_to "Up", up_list_item_path(current_user.list, item), method: :patch %>
+      <%= link_to "Down", down_list_item_path(current_user.list, item), method: :patch %>
+
 <!-- Create forms to up and down -->
     <% end %>
   </div>

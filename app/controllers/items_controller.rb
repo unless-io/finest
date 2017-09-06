@@ -21,6 +21,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def up
+    @item = Item.find(params[:id])
+    @item.move_higher
+  end
+
+  def down
+    @item = Item.find(params[:id])
+    @item.move_lower
+  end
+
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
