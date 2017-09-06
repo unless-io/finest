@@ -7,7 +7,7 @@ class GetListItemService
   end
 
   def call
-    api_url = "https://www.googleapis.com/books/v1/volumes?q=#{@query}"
+    api_url = "https://www.googleapis.com/books/v1/volumes?q=#{@query}&country=UK"
 
     return JSON.parse(open(api_url).read)
   end

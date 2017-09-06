@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20170906094321) do
     t.string   "google_api_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "position"
     t.text     "content"
     t.string   "author"
     t.string   "publishing_date"
     t.string   "thumbnail"
+    t.integer  "position"
     t.index ["list_id"], name: "index_items_on_list_id", using: :btree
   end
 

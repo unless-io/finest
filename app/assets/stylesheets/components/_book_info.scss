@@ -9,6 +9,7 @@
 
 .book-description-right {
   .book-description-header {
+    margin-bottom: 20px;
     h2 {
       font-size: 22px;
       margin-bottom: 24px;
@@ -25,14 +26,5 @@
     margin-top: 25px;
     line-height: 23px;
     font-size: 12px;
-  }
-}
-
-.book-info-container {
-  position: relative;
-  .btn-round-base {
-    position: absolute;
-    top: 0;
-    left: 10px;
   }
 }

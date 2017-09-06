@@ -33,13 +33,61 @@
   background-color: $red;
 }
 
+.btn-gray {
+  background-color: $gray;
+}
+
+.btn-red-hover {
+  &:hover {
+    background-color: $red;
+  }
+}
+
+.btn-text-gray {
+  text-decoration: none;
+  color: $gray;
+  transition: color 200ms ease;
+}
+
+.btn-text-blue {
+  text-decoration: none;
+  color: $brand-color;
+  transition: color 200ms ease;
+}
+
+.btn-red-text-hover {
+  &:hover, &:visited, &:active, &:focus {
+    color: $red;
+    text-decoration: none;
+  }
+}
+
+.btn-gray-text-hover {
+  &:hover, &:visited, &:active, &:focus {
+    color: $gray;
+    text-decoration: none;
+  }
+}
+
+.btn-blue-text-hover {
+  &:hover, &:visited, &:active, &:focus {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}
+
+.btn-yellow-text-hover {
+  &:hover, &:visited, &:active, &:focus {
+    color: $yellow;
+    text-decoration: none;
+  }
+}
+
 .btn-round-base {
   display: inline-block;
   text-decoration: none;
   border: none;
   color: white;
-  // margin: 20px 0;
-  box-shadow: 1px 1px 4px rgba(1,1,1,0.2);
   &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
     color: white;
@@ -63,4 +111,5 @@
  display: flex;
  justify-content: center;
  align-items: center; 
+ transition: background-color 200ms ease;
 }

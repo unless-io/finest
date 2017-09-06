@@ -1,13 +1,14 @@
 .book-carousel-slice {
   display: flex;
   justify-content: space-between;
-  flex: 1 0 auto;
+  width: 100%;
   .carousel-image {
     height: 170px;
   }
 }
 
 .book-carousel {
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,4 +21,9 @@
       text-decoration: none;
     }
   }
+}
+
+.carousel-slice-container {
+  flex: 1 0 auto;
+  display: flex;
 }
