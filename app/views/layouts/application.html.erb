@@ -9,6 +9,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
 </head>
 <body class="<%= params[:controller] %>-<%= params[:action] %>">
+<div id="fb-root"></div>
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
   <div class="general-layout">

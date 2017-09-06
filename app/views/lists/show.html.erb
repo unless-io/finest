@@ -4,7 +4,7 @@
   </div>
 <% end %>
 <ul class="list-cards">
-<% @items.each_with_index do |item, index| %>
+  <% @items.each_with_index do |item, index| %>
   <%= render partial: "list_item", locals: { item: item, index: index, preview: false } %>
-<% end %>
+  <% end %>
 </ul>
