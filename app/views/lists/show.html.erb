@@ -1,5 +1,7 @@
 <% if current_user.list.items.count < 10 %>
-  <%= link_to "Add books", new_list_item_path, class: "btn-base btn-blue"  %>
+  <div class="button-right-container">
+    <%= link_to "Add books", new_list_item_path, class: "btn-base btn-blue"  %>
+  </div>
 <% end %>
 <ul class="list-cards">
   <% @items.each_with_index do |item, index| %>
