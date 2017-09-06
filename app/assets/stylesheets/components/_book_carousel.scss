@@ -1,0 +1,23 @@
+.book-carousel-slice {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 0 auto;
+  .carousel-image {
+    height: 170px;
+  }
+}
+
+.book-carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  #previous, #next {
+    margin: 0 10px;
+    color: $gray;
+    text-decoration: none;
+    &:hover {
+      color: $gray;
+      text-decoration: none;
+    }
+  }
+}

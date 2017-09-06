@@ -1,0 +1,25 @@
+<div class="book-info">
+  <% if item.thumbnail %>
+    <%= image_tag item.thumbnail, class: "image-left" %>
+  <% else %>
+    <%= image_tag "placeholder.png", class: "image-left" %>
+  <% end %>
+  <div class="book-description-right">
+    <div class="book-description-header">
+      <h2>
+        <%= item.title %>
+      </h2>
+      <h3>
+        <strong>
+          <%= item.publishing_date %>
+        </strong>
+        <em>
+          <%= item.author %>
+        </em>
+      </h3>
+    </div>
+    <div class="book-description-content">
+      <%= item.content.html_safe %>
+    </div>
+  </div>
+</div>
