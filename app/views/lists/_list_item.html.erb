@@ -9,6 +9,10 @@
       <h3>
       <% if item.title %>
         <%= item.title %>
+        <!-- Remove after testing purpose -->
+        #
+        <%= item.position %>
+
       <% else %>
         No title found
       <% end %>
@@ -41,6 +45,7 @@
       <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
         More info
       <% end %>
+<!-- Create forms to up and down -->
     <% end %>
   </div>
 </li>
