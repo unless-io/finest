@@ -1,8 +1,8 @@
 <% if current_user.list.items.count < 10 %>
-  <%= link_to "Add books", new_list_item_path  %>
+<%= link_to "Add books", new_list_item_path  %>
 <% end %>
 <ul class="list-cards">
-<% @items.each_with_index do |item, index| %>
+  <% @items.each_with_index do |item, index| %>
   <%= render partial: "list_item", locals: { item: item, index: index, preview: false } %>
-<% end %>
+  <% end %>
 </ul>
