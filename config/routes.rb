@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resource :list, only: [:show], path: ':username' do
     resources :items, except: [:index] do
+      member do
+        patch :up
+        patch :down
+      end
       resources :comments, only: [:new, :create, :edit, :update]
     end
   end

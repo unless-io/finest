@@ -1,4 +1,4 @@
-<li class="list-item <%= index.even? ? "reverse" : "normal" %>">
+<li class="list-item <%= index.even? ? "reverse" : "normal" %>" data-item-id="<%= item.id %>">
   <% if item.thumbnail %>
     <%= image_tag item.thumbnail %>
   <% else %>
@@ -9,6 +9,10 @@
       <h3>
       <% if item.title %>
         <%= item.title %>
+        <!-- Remove after testing purpose -->
+        #
+        <%= item.position %>
+
       <% else %>
         No title found
       <% end %>
@@ -41,6 +45,8 @@
       <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
         More info
       <% end %>
+      | <%= link_to "Up", up_list_item_path(current_user.list, item), method: :patch, remote: :true %> /
+      <%= link_to "Down", down_list_item_path(current_user.list, item), method: :patch, remote: :true %>
     <% end %>
   </div>
 </li>

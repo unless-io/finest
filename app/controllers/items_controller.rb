@@ -21,6 +21,26 @@ class ItemsController < ApplicationController
     end
   end
 
+  def up
+    @items = current_user.list.items
+    @item = Item.find(params[:id])
+    @item.move_higher
+    respond_to do |format|
+      format.html { redirect_to list_path(current_user) }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+  end
+
+  def down
+    @items = current_user.list.items
+    @item = Item.find(params[:id])
+    @item.move_lower
+    respond_to do |format|
+      format.html { redirect_to list_path(current_user) }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+  end
+
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
