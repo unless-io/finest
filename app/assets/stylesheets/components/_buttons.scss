@@ -11,6 +11,38 @@
   }
 }
 
+.btn-facebook-round {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #3B5998;
+  margin: 10px;
+  color: #3B5998;
+  &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+    color: #3B5998;
+  }
+}
+
+.btn-twitter-round {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #1da1f2;
+  margin: 10px;
+  color: #1da1f2;
+  &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+    color: #1da1f2;
+  }
+}
+
 .btn-base {
   display: inline-block;
   text-decoration: none;
