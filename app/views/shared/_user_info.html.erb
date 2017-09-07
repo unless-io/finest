@@ -4,6 +4,11 @@
     <%= image_tag current_user.profile_large %>
     <h3>
       <%= current_user.full_name %>
+      <span>
+      <%= link_to edit_user_registration_path(current_user), class: "btn-text-gray btn-yellow-text-hover" do %>
+      <i class="fa fa-pencil"></i>
+      <% end %>
+      </span>
     </h3>
   </div>
   <div class="bottom">

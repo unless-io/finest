@@ -8,47 +8,50 @@
   }
 }
 
-ul.list-cards {
+ul.list-cards, ul#results {
   list-style: none;
   padding-left: 80px;
 }
 
-li.list-item.reverse {
+.list-item.reverse {
   flex-direction: row-reverse;
 }
-
-li.list-item {
-  min-height: 150px;
-  width: 100%;
+.list-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 40px 0;
-  transition: all 200ms ease;
-  background-color: white;
-  padding: 15px 0px 15px 0px;
-  border: 1px solid white;
-  &:first-child {
-    margin: 0px 0px 40px 0px;
-  }
-  &:hover {
-    border: 1px solid rgba(1,1,1,0.1);
-  }
-  img {
-    width: 80px;
-  }
-  .list-description p {
-    font-size: 12px;
-    line-height: 22px;
+  .list-item {
+    min-height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    transition: all 200ms ease;
+    background-color: white;
+    padding: 15px 0px 15px 0px;
+    border: 1px solid white;
+    &:first-child {
+      margin: 0px 0px 40px 0px;
+    }
+    &:hover {
+      border: 1px solid rgba(1,1,1,0.1);
+    }
+    img {
+      width: 80px;
+    }
+    .list-description p {
+      font-size: 12px;
+      line-height: 22px;
+    }
   }
 }
 
-li.list-item.normal .list-body {
+.list-item.normal .list-body {
   padding-left: 30px;
   flex: 1 0 80%;
 }
 
-li.list-item.reverse .list-body {
+.list-item.reverse .list-body {
   padding-right: 30px;
   flex: 1 0 80%;
 }
