@@ -1,12 +1,15 @@
 <div class="footer">
   <div class="social-share">
-    <div class="fb-share-button" data-href="https://epicl.ist" data-layout="button" data-size="large" data-mobile-iframe="true">
-      <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fepicl.ist%2F&amp;src=sdkpreparse">
-        Share
-      </a>
+  <div class="share">
+    Share
+  </div>
+    <div class="buttons">
+      <%= link_to "https://www.facebook.com/sharer/sharer.php?app_id=167011950539048&kid_directed_site=0&sdk=joey&u=https%3A%2F%2Fepicl.ist%2F&display=popup&ref=plugin&src=share_button", class: "btn-facebook-round", target: "_blank" do %>
+      <i class="fa fa-facebook"></i>
+      <% end %>
+      <%= link_to "https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A3000%2Flars_the_furriest&ref_src=twsrc%5Etfw&text=Look%20at%20my%20list%20now%20on&tw_p=tweetbutton&url=#{request.original_url}", class: "btn-twitter-round", target: "_blank" do %>
+      <i class="fa fa-twitter"></i>
+      <% end %>
     </div>
-    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Look%20at%20my%20list%20now%20on " data-size="large">
-      Tweet
-    </a>
   </div>
 </div>

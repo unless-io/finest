@@ -1,4 +1,4 @@
- <%= simple_form_for(:query, remote: true, url: search_path, html: { class: "form-inline query-form" }) do |f| %>
-  <%= f.input :query, label: false, input_html: { placeholder: "Find your book", autofocus: true } %>
+ <%= simple_form_for(:query, remote: true, url: search_path, html: { class: "form-inline query-form query-form-initial", id: "search-form" }) do |f| %>
+  <%= f.input :query, label: false, input_html: { placeholder: "Find your book", autofocus: true, id: "search-input" } %>
   <%= f.submit 'Search', class: "btn-base btn-blue" %>
 <% end %>

@@ -1,0 +1,19 @@
+.welcome-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 20px;
+    margin: 0;
+    span {
+      font-family: Lobster;
+      font-style: normal;
+      color: $brand-color;
+    }
+  }
+  h3 {
+    font-size: 13px;
+    color: $light-gray;
+    margin-top: 16px;
+  }
+}

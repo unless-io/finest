@@ -2,7 +2,6 @@
 
 $('#results').empty()
 
-
 <% if @results.nil? %>
   $('#results').append("<li>No results found </li>");
 <% else %>
@@ -20,7 +19,7 @@ $('#results').empty()
 
 
   // Reset the form
-  $('#new-search').html("<%= j render 'shared/search_form' %>");
-
+  // $('#new-search').html("<%= j render 'shared/search_form' %>");
+  // TODO Mogelijk om snel nieuwe search te beginnen of om bestaande search aan te passen?
 <% end %>
 

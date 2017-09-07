@@ -1,11 +1,41 @@
-#query_query {
-  height: 35px;
-  box-shadow: none;
-  margin-right: 10px;
+.query_query {
+  input {
+    height: 35px;
+    box-shadow: none;
+    margin-right: 10px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }
 
 .query-form {
   padding-left: 40px;
   display: flex;
   align-items: center;
+  transition: padding-left 200ms ease;
+}
+
+.query-form-initial {
+  padding-left: 33%;
+}
+
+.spinner-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $brand-color;
+}
+
+#results {
+  min-height: 400px;
+}
+
+.placeholder-fontawesome {
+  text-align: center;
+  font-size: 100px;
+  color: lightgray;
+  padding-top: 80px;
 }
