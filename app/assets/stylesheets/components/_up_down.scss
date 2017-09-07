@@ -9,13 +9,23 @@
   text-align: center;
   font-weight: 700;
   font-size: 30px;
-  span {
+  display: flex;
+  align-items: flex-end;
+  .hashtag {
     color: $light-gray;
     font-size: 24px;
     opacity: 0.6;
     margin-right: 3px;
   }
 }
+
+.inline-edit-position {
+  border: none;
+  font-weight: 700;
+  font-size: 30px;
+  width: 37px;
+}
+
 
 .chevrons {
   display: flex;
