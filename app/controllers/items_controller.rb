@@ -14,9 +14,10 @@ class ItemsController < ApplicationController
     @item = ParseItemService.new(item: json_item).call
     @item.list = current_user.list
     if @item.save
-      redirect_to list_path(current_user)
+      redirect_to list_path(current_user.list)
     else
-      render 'new'
+      flash[:alert] = "Item is already in your list"
+      redirect_to new_list_item_path(current_user.list)
     end
   end
 
