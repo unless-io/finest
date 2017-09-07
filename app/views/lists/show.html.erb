@@ -9,7 +9,7 @@
   <% end %>
   <ul class="list-cards">
     <% @items.each_with_index do |item, index| %>
-    <%= render partial: "list_item", locals: { item: item, index: index, preview: false } %>
+    <%= render partial: "list_item", locals: { item: item, index: index, preview: false, items:@items } %>
     <% end %>
   </ul>
 <% end %>

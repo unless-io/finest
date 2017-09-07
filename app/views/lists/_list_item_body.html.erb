@@ -16,7 +16,7 @@
       <div class="additional-info">
         <strong>
           <% if item.publishing_date %>
-          <%= item.publishing_date %>
+          <%= item.publishing_date[0..3] %>
           <% else %>
           unknown
           <% end %>
