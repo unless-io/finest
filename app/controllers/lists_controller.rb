@@ -16,11 +16,12 @@ class ListsController < ApplicationController
   end
 
   def search
+    @new_item = Item.new
     @json_results = GetListItemService.new(query: params[:query][:query]).call
     @results = ParseItemService.new(items: @json_results["items"]).call
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js 
+      format.js
          # <-- will render `app/views/lists/search.js.erb`
        end
      end

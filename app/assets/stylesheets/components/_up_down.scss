@@ -1,0 +1,33 @@
+.up-and-down {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 20px 0px 0px;
+}
+
+.position {
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  span {
+    color: $light-gray;
+    font-size: 24px;
+    opacity: 0.6;
+    margin-right: 3px;
+  }
+}
+
+.chevrons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.up-chevron {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.down-chevron {
+  cursor: pointer;
+  margin-left: 5px;
+}

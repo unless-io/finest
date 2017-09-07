@@ -1,58 +1,41 @@
-<li class="list-item <%= index.even? ? "reverse" : "normal" %>" data-item-id="<%= item.id %>">
-  <% if item.thumbnail %>
-    <%= image_tag item.thumbnail %>
-  <% else %>
-    <%= image_tag "placeholder.png" %>
-  <% end %>
-  <div class="list-body">
-    <div class="list-header">
-      <h3>
-      <% if item.title %>
-        <%= item.title %>
-        <!-- Remove after testing purpose -->
-        #
-        <%= item.position %>
+<li class="list-container">
+  <% if preview %>
+  <div class="add-item">
+    <%= simple_form_for new_item, url: list_items_path(current_user) do |f| %>
 
-      <% else %>
-        No title found
-      <% end %>
-      </h3>
-      <div class="additional-info">
-        <strong>
-        <% if item.publishing_date %>
-          <%= item.publishing_date %>
-        <% else %>
-          unknown
-        <% end %>
-        </strong>
-          <em>
-            <%= item.author %>
-          </em>
-      </div>
-    </div>
-    <div class="list-description">
-    <% if item.content %>
-      <p>
-        <%= truncate(item.content.gsub(/<br>/, " "), length: 300, escape: false) %>
-      </p>
-    <% end %>
-    </div>
-    <% if preview %>
-      <%= link_to preview_path(google_api_id: item.google_api_id), class: "list-link" do %>
-        Preview
-      <% end %>
-    <% else %>
-      <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
-        More info
-      <% end %>
-      | 
-      <%= link_to up_list_item_path(current_user.list, item), method: :patch, remote: :true, class: "btn-text-blue btn-blue-text-hover" do %>
-      <i class="fa fa-chevron-up"></i>
-      <% end %>
-      /
-      <%= link_to down_list_item_path(current_user.list, item), method: :patch, remote: :true, class: "btn-text-blue btn-blue-text-hover" do %>
-        <i class="fa fa-chevron-down"></i>
-      <% end %>
+      <%= f.input :google_api_id, as: :hidden, input_html: { value: item.google_api_id } %>
+
+      <%= f.submit "+", class: "btn-round-small btn-blue disable-input-style", data: { confirm: 'Are you sure you want to add this item to your list?' } %>
+
     <% end %>
   </div>
+    <%= link_to preview_path(google_api_id: item.google_api_id), class: "list-link" do %>
+      <%= render partial: "lists/list_item_body", locals: {item: item, index: index} %>
+    <% end %>
+  <% else %>
+  <div class="up-and-down">
+    <div class="position">
+      <span>#</span><%= item.position %>
+    </div>
+    <div class="chevrons">
+      <div class="up-chevron">
+        <%= link_to up_list_item_path(current_user.list, item), method: :patch, remote: :true, class: "btn-text-blue btn-blue-text-hover" do %>
+        <i class="fa fa-chevron-up"></i>
+        <% end %>
+      </div>
+      /
+      <div class="down-chevron">
+        <%= link_to down_list_item_path(current_user.list, item), method: :patch, remote: :true, class: "btn-text-blue btn-blue-text-hover" do %>
+        <i class="fa fa-chevron-down"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
+
+    <%= render partial: "lists/list_item_body", locals: {item: item, index: index} %>
+  <% end %>
+
+  <% end %>
 </li>
+
