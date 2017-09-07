@@ -21,6 +21,7 @@ ul.list-cards, ul#results {
   display: flex;
   align-items: center;
   padding-right: 10px;
+  padding-left: 10px;
   margin: 0px 0px 80px 0px;
   &:hover {
     border: 1px solid rgba(1,1,1,0.1);
