@@ -1,3 +1,6 @@
+<% content_for :meta_title, @item.title %>
+<% content_for :meta_description, truncate(@item.content.gsub(/<br>/, " "), length: 200, escape: false) %>
+
 <div class="book-info-container">
   <%= render partial: "lists/book_info", locals: { item: @item } %>
   <%= render partial: "lists/book_carousel", locals: { items: @items, user: @user } %>

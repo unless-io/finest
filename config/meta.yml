@@ -1,7 +1,7 @@
 meta_product_name: "Epiclist"
-meta_title: "Epiclist - List the things you love"
+meta_title: "List the things you love"
 meta_description: "Keep track of the books that interest you, share them with your friends and discover new titles"
-meta_image: "comfy.jpg"                       # should exist in `app/assets/images/`
+meta_image: "banner.png"                       # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
 
 
