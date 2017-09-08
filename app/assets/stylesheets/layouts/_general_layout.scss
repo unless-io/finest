@@ -19,7 +19,12 @@
   }
   .content {
     min-height: 400px;
+    grid-column: 2;
   }
+}
+
+.pages-home .general-layout .content {
+  grid-column: 1 / span 2;
 }
 
 .user-info .top {
