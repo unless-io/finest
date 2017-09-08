@@ -43,7 +43,7 @@
       </div>
     </div>
     <% end %>
-    <%= link_to list_item_path(current_user.list, item), class: "list-link" do %>
+    <%= link_to list_item_path(@user.username, item), class: "list-link" do %>
 
     <%= render partial: "lists/list_item_body", locals: {item: item, index: index} %>
     <% end %>
