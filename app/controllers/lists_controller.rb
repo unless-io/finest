@@ -2,7 +2,8 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :preview]
 
   def show
-    @items = current_user.list.items
+    @user = User.find_by_username(params[:username])
+    @items = @user.list.items
   end
 
   def preview
