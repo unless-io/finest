@@ -1,0 +1,33 @@
+.featured-user-container {
+  display: flex;
+  justify-content: space-between;
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 0 0 30%;
+    a {
+      text-decoration: underline;
+      color: #45c0ff;
+    }
+    p {
+      font-style: italic;
+      font-size: 15px;
+    }
+  }
+  .featured-user-books {
+    flex: 0 0 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -50px;
+    .featured-book {
+      box-shadow: -2px -2px 6px rgba(1,1,1,0.3);
+      button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+  }
+}
