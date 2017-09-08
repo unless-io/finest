@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :preview]
+  before_action :set_list, only: [:preview]
+  skip_before_action :authenticate_user!, only: [:show]
+
 
   def show
     @user = User.find_by_username(params[:username])
