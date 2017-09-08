@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
+  before_action :set_user, only: [:show, :up, :down]
 
   def show
     @new_item = Item.new
     @item = Item.find(params[:id])
-    @user = User.find_by(username: params[:username])
   end
 
   def new
@@ -16,10 +16,10 @@ class ItemsController < ApplicationController
     @item = ParseItemService.new(item: json_item).call
     @item.list = current_user.list
     if @item.save
-      redirect_to list_path(current_user.list)
+      redirect_to list_path(current_user.username)
     else
       flash[:alert] = "Item is already in your list"
-      redirect_to new_list_item_path(current_user.list)
+      redirect_to new_list_item_path(current_user.username)
     end
   end
 
@@ -52,5 +52,11 @@ class ItemsController < ApplicationController
       redirect_to list_item_path(current_user, @item)
       flash[:danger] = "Something went wrong"
     end
+  end
+
+  private
+
+  def set_user
+    @user = User.find_by_username(params[:username])
   end
 end

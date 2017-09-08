@@ -1,11 +1,13 @@
 <div class="book-carousel-slice<%= index > 0 ? " hidden" : " active" %>">
   <% item_slice.each do |item| %>
-    <%= link_to list_item_path(@user.username, item) do %>
-      <% if item.thumbnail %>
-        <%= image_tag item.thumbnail, class: "carousel-image" %>
-      <% else %>
-        <%= image_tag "placeholder.png", class: "carousel-image" %>
-      <% end %>
+    <%= link_to list_item_path(@user.username, item), class: "book-carousel-item" do %>
+      <button data-balloon="<%= item.title %>" data-balloon-pos="up">
+        <% if item.thumbnail %>
+          <%= image_tag item.thumbnail, class: "carousel-image" %>
+        <% else %>
+          <%= image_tag "placeholder.png", class: "carousel-image" %>
+        <% end %>
+      </button>
     <% end %>
   <% end %>
 </div>

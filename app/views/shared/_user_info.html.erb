@@ -1,11 +1,11 @@
 <div class="user-info">
-  <% if user_signed_in? %>
+
   <div class="top">
-    <%= image_tag current_user.profile_large %>
+    <%= image_tag @user.profile_large %>
     <h3>
-      <%= current_user.full_name %>
+      <%= @user.full_name %>
       <span>
-      <%= link_to edit_user_registration_path(current_user), class: "btn-text-gray btn-yellow-text-hover" do %>
+      <%= link_to edit_user_registration_path(@user), class: "btn-text-gray btn-yellow-text-hover" do %>
       <i class="fa fa-pencil"></i>
       <% end %>
       </span>
@@ -31,9 +31,8 @@
     </div>
     <div class="description">
       <p>
-        <%= current_user.description %>
+        <%= @user.description %>
       </p>
     </div>
   </div>
-  <% end %>
 </div>
