@@ -7,6 +7,7 @@
       <%= link_to "Add books", new_list_item_path, class: "btn-base btn-blue"  %>
     </div>
   <% end %>
+  <%= can_edit?(@user) %>
   <ul class="list-cards">
     <% @items.each_with_index do |item, index| %>
     <%= render partial: "list_item", locals: { item: item, index: index, preview: false, items:@items } %>
