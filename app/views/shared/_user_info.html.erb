@@ -1,13 +1,17 @@
 <div class="user-info">
 
   <div class="top">
-    <%= image_tag @user.profile_large %>
+    <% if @user.facebook_picture_url? %>
+      <%= image_tag @user.profile_large %>
+    <% else %>
+      <%= image_tag "placeholder.png" %>
+    <% end %>
     <h3>
       <%= @user.full_name %>
       <span>
-      <%= link_to edit_user_registration_path(@user), class: "btn-text-gray btn-yellow-text-hover" do %>
-      <i class="fa fa-pencil"></i>
-      <% end %>
+        <%= link_to edit_user_registration_path(@user), class: "btn-text-gray btn-yellow-text-hover" do %>
+        <i class="fa fa-pencil"></i>
+        <% end %>
       </span>
     </h3>
   </div>
