@@ -1,0 +1,13 @@
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter-container {
+  margin: 80px 0;
+  .disclaimer {
+    font-size: 11px;
+    color: $light-gray;
+  }
+}
