@@ -11,10 +11,14 @@
   </div>
   <div class="featured-user-books">
     <% list.items.first(5).each do |item| %>
-      <%= link_to list_item_path(list, item) do %>
+      <%= link_to list_item_path(list.user.username, item) do %>
         <div class="featured-book">
           <button data-balloon="<%= item.title %>" data-balloon-pos="up">
-            <%= image_tag item.thumbnail %>
+              <% if item.thumbnail %>
+                <%= image_tag item.thumbnail %>
+              <% else %>
+                <%= image_tag "placeholder.png" %>
+              <% end %>
           </button>
         </div>
       <% end %>
