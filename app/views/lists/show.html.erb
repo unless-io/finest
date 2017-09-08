@@ -1,3 +1,6 @@
+<% content_for :meta_title, @user.full_name %>
+<% content_for :meta_description, @user.description %>
+
 <% if can_edit?(@user) %>
   <% if @items.empty? %>
     <%= render partial: "lists/new_user" %>
