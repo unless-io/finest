@@ -10,14 +10,14 @@
 
       <ul class="list-cards">
         <% @items.each_with_index do |item, index| %>
-        <%= render partial: "list_item", locals: { item: item, index: index, preview: false, items: @items } %>
+        <%= render partial: "list_item", locals: { item: item, index: index, preview: false, items: @items, user: @user } %>
         <% end %>
       </ul>
     <% end %>
 <% else %>
   <ul class="list-cards">
     <% @items.each_with_index do |item, index| %>
-      <%= render partial: "list_item", locals: { item: item, index: index, preview: false, items: @items } %>
+      <%= render partial: "list_item", locals: { item: item, index: index, preview: false, items: @items, user: @user } %>
     <% end %>
   </ul>
 <% end %>

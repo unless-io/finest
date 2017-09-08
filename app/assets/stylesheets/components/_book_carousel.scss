@@ -5,6 +5,14 @@
   .carousel-image {
     height: 170px;
   }
+  .book-carousel-item {
+    box-shadow: -2px -2px 6px rgba(1,1,1,0.3);
+    button {
+      border: none;
+      background-color: transparent;
+      padding: 0;
+    }
+  }
 }
 
 .book-carousel {

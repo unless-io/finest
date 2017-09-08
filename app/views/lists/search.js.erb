@@ -9,7 +9,7 @@ $('#results').empty()
 
 <% @results.each_with_index do |item, index| %>
   // Create a paragraph for the new review. But hide it.
-  var searchItem = $("<%= j render 'lists/list_item', item: item, index: index, preview: true, new_item: @new_item, items: @items %>").hide();
+  var searchItem = $("<%= j render 'lists/list_item', item: item, index: index, preview: true, new_item: @new_item, items: @items, user: @user %>").hide();
   // Add it to the DOM, at the end of the existing reviews. It's still hidden.
   $('#results').append(searchItem);
   // Show the new review with an animation!
