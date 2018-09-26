@@ -11,7 +11,11 @@ class ListsController < ApplicationController
   def preview
     if params[:google_api_id].present?
       @new_item = Item.new
-      json_item = GetSingleItemService.new(item: Item.new(google_api_id: params[:google_api_id])).call
+      if $redis.get(params[:google_api_id]).nil?
+        json_item = GetSingleItemService.new(item: Item.new(google_api_id: params[:google_api_id])).call
+      else
+        json_item = JSON.parse($redis.get(params[:google_api_id]))
+      end
       @item = ParseItemService.new(item: json_item).call
     else
       redirect_to root_path
@@ -21,6 +25,7 @@ class ListsController < ApplicationController
   def search
     @new_item = Item.new
     @json_results = GetListItemService.new(query: params[:query][:query]).call
+    CacheItemService.new(items: @json_results["items"]).call
     @results = ParseItemService.new(items: @json_results["items"]).call
     respond_to do |format|
       format.html { redirect_to root_path }
